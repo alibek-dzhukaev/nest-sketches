@@ -24,7 +24,11 @@ const proConfig = { port: 4000 };
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.development', '.env.production'],
+      envFilePath: [
+        // '.env.development',
+        // '.env.production',
+        `${process.cwd()}/.env.${process.env.NODE_ENV}`,
+      ],
       isGlobal: true,
       load: [configuration],
       validate,
@@ -53,16 +57,15 @@ const proConfig = { port: 4000 };
     JwtStrategy,
   ],
 })
-export class AppModule implements NestModule {
-  constructor(private readonly dataSource: DataSource) {
-    console.log('datasource', this.dataSource.driver.database);
-  }
-
-  configure(consumer: MiddlewareConsumer) {
-    // consumer.apply(LoggerMiddleware).forRoutes('songs')
-
-    // consumer.apply(LoggerMiddleware).forRoutes({path: 'songs', method: RequestMethod.POST})
-
-    consumer.apply(LoggerMiddleware).forRoutes(SongsController);
-  }
+export class AppModule {
+  // constructor(private readonly dataSource: DataSource) {
+  //   console.log('datasource', this.dataSource.driver.database);
+  // }
+  // configure(consumer: MiddlewareConsumer) {
+  //   // consumer.apply(LoggerMiddleware).forRoutes('songs')
+  //
+  //   // consumer.apply(LoggerMiddleware).forRoutes({path: 'songs', method: RequestMethod.POST})
+  //
+  //   consumer.apply(LoggerMiddleware).forRoutes(SongsController);
+  // }
 }
