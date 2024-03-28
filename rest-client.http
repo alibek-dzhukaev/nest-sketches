@@ -1,0 +1,94 @@
+### send
+GET http://localhost:3000/songs?page=1&limit=2
+
+### find
+GET http://localhost:3000/songs/1
+
+###
+POST http://localhost:3000/songs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1rYXJkQG1haWwucnUiLCJ1c2VySWQiOjQsImFydGlzdElkIjozLCJpYXQiOjE3MTE1Nzc1OTksImV4cCI6MTcxMTY2Mzk5OX0.HmhoO0xit40rolKxRM6BxKLmz9Lr4MlWKgOX2EZTGjM
+
+{
+    "title": "Animals",
+    "artists": [1],
+    "releasedDate": "2023-05-29",
+    "duration": "02:34",
+    "lyrics": "Sbusdf, did it for u"
+}
+
+###
+PUT http://localhost:3000/songs/1
+Content-Type: application/json
+
+{
+  "title": "Update Lasting",
+  "artists": ["Abolish"],
+  "releasedDate": "2022-09-29",
+  "duration": "02:34",
+  "lyrics": "Sbu, did it for u"
+}
+
+###
+DELETE http://localhost:3000/songs/1
+
+
+### create new playlist
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+  "name": "Feel Good Now",
+  "songs": [1],
+  "user": 1
+}
+
+### signup artist
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "firstName": "martin",
+  "lastName": "Guar",
+  "email": "mkard12@mail.ru",
+  "password": "123456"
+}
+
+### login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "mkard12@mail.ru",
+  "password": "123456"
+}
+
+### accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMkBtYWlsLnJ1Iiwic3ViIjoyLCJpYXQiOjE3MTE1NzU4ODUsImV4cCI6MTcxMTY2MjI4NX0.WQtAOzFEPZ2wBzQigApAMG4M6cvdMNDVeaOowOJQuAs
+### artisttoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1rYXJkQG1haWwucnUiLCJ1c2VySWQiOjQsImFydGlzdElkIjozLCJpYXQiOjE3MTE1Nzc1OTksImV4cCI6MTcxMTY2Mzk5OX0.HmhoO0xit40rolKxRM6BxKLmz9Lr4MlWKgOX2EZTGjM
+
+### get profile
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1rYXJkQG1haWwucnUiLCJ1c2VySWQiOjQsImFydGlzdElkIjozLCJpYXQiOjE3MTE2MDQ1OTEsImV4cCI6MTcxMTY5MDk5MX0.C307awyJ3Cslo1jJLhctgpIJxt71JRWB99zk1jpOLG8
+
+### enable 2fa
+GET http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1rYXJkQG1haWwucnUiLCJ1c2VySWQiOjQsImFydGlzdElkIjozLCJpYXQiOjE3MTE2MDQ5OTQsImV4cCI6MTcxMTY5MTM5NH0.0HQNmP9w2hgs09d6Tagj0ZU7JTxoUtczD2r5CTgDATA
+
+
+### validate 2fa token
+POST http://localhost:3000/auth/validate-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1rYXJkQG1haWwucnUiLCJ1c2VySWQiOjQsImFydGlzdElkIjozLCJpYXQiOjE3MTE2MDQ5OTQsImV4cCI6MTcxMTY5MTM5NH0.0HQNmP9w2hgs09d6Tagj0ZU7JTxoUtczD2r5CTgDATA
+Content-Type: application/json
+
+{
+  "token": "892480"
+}
+
+### disable 2fa
+GET http://localhost:3000/auth/disable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1rYXJkQG1haWwucnUiLCJ1c2VySWQiOjQsImFydGlzdElkIjozLCJpYXQiOjE3MTE2MDQ5OTQsImV4cCI6MTcxMTY5MTM5NH0.0HQNmP9w2hgs09d6Tagj0ZU7JTxoUtczD2r5CTgDATA
+
+
+### access profile
+GET http://localhost:3000/auth/profile
+Authorization: Bearer 22fb81e2-dc54-4af5-bffd-f48c562c0eca
